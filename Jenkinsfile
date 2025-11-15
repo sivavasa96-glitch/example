@@ -17,8 +17,8 @@ pipeline{
         }
         stage ('Deploy to tomcat server') {
             steps{
-                echo "This is running on ${readProp['deploy.type']}"
-                deploy adapters: [tomcat7(alternativeDeploymentContext: '', credentialsId: 'a35caabd-2856-4b60-ba00-9b8b684d2414', path: '', url: 'http://localhost:8888/')], contextPath: null, war: '**/*WAR'
+            
+                deploy adapters: [tomcat9(alternativeDeploymentContext: '', path: '', url: 'http://localhost:8888/')], contextPath: null, war: '**/*war'
             }
         }
     }
